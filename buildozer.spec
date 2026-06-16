@@ -18,7 +18,7 @@ source.include_exts = py,kv,png,txt
 version = 0.1
 
 # (list) Application requirements
-requirements = python3, kivy==2.3.0, opencv-python, mediapipe, numpy==1.26.4
+requirements = python3, kivy==2.3.0, opencv, numpy
 
 # (str) Supported orientation (one of landscape, portrait or all)
 orientation = portrait
@@ -55,7 +55,7 @@ android.ndk = 25b
 # android.sdk = 33
 
 # (list) Android architectures to build for
-android.archs = armeabi-v7a, arm64-v8a
+android.archs = arm64-v8a
 
 # (list) Permissions
 android.permissions = CAMERA,INTERNET,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,WAKE_LOCK,ACCESS_NETWORK_STATE,VIBRATE
