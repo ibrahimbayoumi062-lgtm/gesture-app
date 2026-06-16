@@ -18,7 +18,13 @@ jobs:
           sudo apt-get install -y git zip unzip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
           pip install --user --upgrade buildozer Cython virtualenv
 
+      - name: Auto Accept Android Licenses
+        run: |
+          mkdir -p $HOME/.android
+          touch $HOME/.android/repositories.cfg
+          yes | sdkmanager --licenses || true
+
       - name: Build APK with Buildozer
         run: |
           export PATH=$PATH:$HOME/.local/bin
-          buildozer android debug
+          yes | buildozer android debug
