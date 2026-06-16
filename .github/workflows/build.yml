@@ -6,11 +6,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Get Buildozer Action
-        uses: ArtemGovorov/buildozer-action@v1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Buildozer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsqlite3-dev sqlite3 bzip2 libbz2-dev zlib1g-dev openssl libssl-dev libgdbm-dev libgdbm-compat-dev liblzma-dev libreadline-dev libncursesw5-dev libffi-dev uuid-dev tar libgstreamer1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+
+      - name: Build with Buildozer
+        uses: ActionDocs/buildozer-action@v2
         with:
           command: buildozer android debug
-      - name: Upload APK
+          repository_root: .
+
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
           name: my-app-apk
