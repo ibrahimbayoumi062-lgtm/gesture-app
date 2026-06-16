@@ -46,13 +46,13 @@ source.encoding = utf-8
 android.api = 33
 
 # (int) Minimum Android API supported
-android.minapi = 21
+android.minapi = 24
 
 # (str) Android NDK version
 android.ndk = 25b
 
 # (str) Android SDK version
-android.sdk = 33
+# android.sdk = 33
 
 # (list) Android architectures to build for
 android.archs = armeabi-v7a, arm64-v8a
