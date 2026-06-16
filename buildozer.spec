@@ -18,7 +18,7 @@ source.include_exts = py,kv,png,txt
 version = 0.1
 
 # (list) Application requirements
-requirements = python3, kivy==2.3.0, opencv-python, mediapipe, numpy
+requirements = python3, kivy==2.3.0, opencv-python, mediapipe, numpy==1.26.4
 
 # (str) Supported orientation (one of landscape, portrait or all)
 orientation = portrait
